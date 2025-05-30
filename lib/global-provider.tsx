@@ -22,11 +22,7 @@ interface GlobalProviderProps {
 
 const GlobalContext = createContext<GlobalContextType | undefined>(undefined);
 
-export const GlobalProvider = ({
-  children,
-}: {
-  children: GlobalProviderProps;
-}) => {
+export const GlobalProvider = ({ children }: GlobalProviderProps) => {
   const {
     data: user,
     loading,
@@ -37,15 +33,15 @@ export const GlobalProvider = ({
 
   const isLoggedIn = !!user;
 
-  console.log(JSON.stringify(user, null, 2));
+  // console.log(JSON.stringify(user, null, 2));
 
   return (
     <GlobalContext.Provider
       value={{
         isLoggedIn,
-        user,
+        user: user ?? null,
         loading,
-        refetch,
+        refetch: () => refetch({}),
       }}
     >
       {children}

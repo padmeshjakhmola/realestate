@@ -23,13 +23,10 @@ export default function RootLayout() {
   if (!fontsLoaded) {
     return null;
   }
+
   return (
     <GlobalProviders>
-      <Stack
-        screenOptions={{
-          headerShown: false,
-        }}
-      />
+      <Stack screenOptions={{ headerShown: false }} />
     </GlobalProviders>
   );
 }
